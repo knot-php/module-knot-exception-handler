@@ -1,5 +1,7 @@
 <?php
-namespace KnotModule\KnotExceptionHandler\Adapter;
+declare(strict_types=1);
+
+namespace KnotPhp\Module\KnotExceptionHandler\Adapter;
 
 use Throwable;
 

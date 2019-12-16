@@ -14,7 +14,7 @@ use KnotLib\Kernel\Kernel\ApplicationInterface;
 use KnotLib\Kernel\Module\ComponentModule;
 use KnotLib\Kernel\Module\Components;
 
-use KnotModule\KnotExceptionHandler\Adapter\KnotExceptionHandlerAdapter;
+use KnotPhp\Module\KnotExceptionHandler\Adapter\KnotExceptionHandlerAdapter;
 
 class KnotConsoleExceptionHandlerModule extends ComponentModule
 {
