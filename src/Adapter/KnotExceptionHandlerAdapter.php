@@ -27,12 +27,9 @@ class KnotExceptionHandlerAdapter implements ExceptionHandlerInterface
      * Handle exception
      *
      * @param Throwable $e
-     *
-     * @return bool
      */
-    public function handleException(Throwable $e) : bool
+    public function handleException(Throwable $e)
     {
-        return $this->c_handler->handleException($e);
+        $this->c_handler->handleException($e);
     }
-
 }
