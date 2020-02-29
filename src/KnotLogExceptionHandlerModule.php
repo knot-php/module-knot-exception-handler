@@ -11,23 +11,33 @@ use KnotLib\Kernel\Exception\ModuleInstallationException;
 use KnotLib\ExceptionHandler\Handler\LogExceptionHandler;
 use KnotLib\ExceptionHandler\DebugtraceRenderer\ConsoleDebugtraceRenderer;
 use KnotLib\Kernel\Kernel\ApplicationInterface;
-use KnotLib\Kernel\Module\ComponentModule;
-use KnotLib\Kernel\Module\Components;
+use KnotLib\Kernel\Module\ModuleInterface;
+use KnotLib\Kernel\Module\ComponentTypes;
 
 use KnotPhp\Module\KnotExceptionHandler\Adapter\KnotExceptionHandlerAdapter;
 
-class KnotLogExceptionHandlerModule extends ComponentModule
+class KnotLogExceptionHandlerModule implements ModuleInterface
 {
+    /**
+     * Declare dependency on another modules
+     *
+     * @return array
+     */
+    public static function requiredModules() : array
+    {
+        return [];
+    }
+
     /**
      * Declare dependent on components
      *
      * @return array
      */
-    public static function requiredComponents() : array
+    public static function requiredComponentTypes() : array
     {
         return [
-            Components::EVENTSTREAM,
-            Components::LOGGER,
+            ComponentTypes::EVENTSTREAM,
+            ComponentTypes::LOGGER,
         ];
     }
 
@@ -38,7 +48,7 @@ class KnotLogExceptionHandlerModule extends ComponentModule
      */
     public static function declareComponentType() : string
     {
-        return Components::EX_HANDLER;
+        return ComponentTypes::EX_HANDLER;
     }
 
     /**
