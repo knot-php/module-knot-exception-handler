@@ -28,8 +28,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "KnotPhp\\Module\\KnotExceptionHandler\\Test\\": "test/include/",
-      "KnotPhp\\Module\\KnotExceptionHandler\\Demo\\": "demo/include/"
+      "KnotPhp\\Module\\KnotExceptionHandler\\Test\\": "test/"
     }
   }
 }

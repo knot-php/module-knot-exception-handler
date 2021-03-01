@@ -8,15 +8,15 @@ use Throwable;
 use KnotLib\Kernel\EventStream\Channels;
 use KnotLib\Kernel\EventStream\Events;
 use KnotLib\Kernel\Exception\ModuleInstallationException;
-use KnotLib\ExceptionHandler\Handler\LogExceptionHandler;
-use KnotLib\ExceptionHandler\DebugtraceRenderer\ConsoleDebugtraceRenderer;
+use KnotLib\ExceptionHandler\Text\TextExceptionHandler;
+use KnotLib\ExceptionHandler\Text\TextDebugtraceRenderer;
 use KnotLib\Kernel\Kernel\ApplicationInterface;
-use KnotLib\Kernel\Module\ModuleInterface;
 use KnotLib\Kernel\Module\ComponentTypes;
+use KnotLib\Kernel\Module\ModuleInterface;
 
 use KnotPhp\Module\KnotExceptionHandler\Adapter\KnotExceptionHandlerAdapter;
 
-class KnotLogExceptionHandlerModule implements ModuleInterface
+class TextExceptionHandlerModule implements ModuleInterface
 {
     /**
      * Declare dependency on another modules
@@ -27,7 +27,7 @@ class KnotLogExceptionHandlerModule implements ModuleInterface
     {
         return [];
     }
-
+    
     /**
      * Declare dependent on components
      *
@@ -37,7 +37,6 @@ class KnotLogExceptionHandlerModule implements ModuleInterface
     {
         return [
             ComponentTypes::EVENTSTREAM,
-            ComponentTypes::LOGGER,
         ];
     }
 
@@ -61,9 +60,8 @@ class KnotLogExceptionHandlerModule implements ModuleInterface
     public function install(ApplicationInterface $app)
     {
         try{
-            $renderer = new ConsoleDebugtraceRenderer();
-
-            $ex_handler = new KnotExceptionHandlerAdapter(new LogExceptionHandler($app->logger(), $renderer));
+            $renderer = new TextDebugtraceRenderer();
+            $ex_handler = new KnotExceptionHandlerAdapter(new TextExceptionHandler($renderer));
             $app->addExceptionHandler($ex_handler);
 
             // fire event
