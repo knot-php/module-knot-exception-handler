@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace KnotPhp\Module\KnotExceptionHandler\Adapter;
+namespace knotphp\module\knotexceptionhandler\adapter;
 
 use Throwable;
 
-use KnotLib\Kernel\ExceptionHandler\ExceptionHandlerInterface;
-use KnotLib\ExceptionHandler\ExceptionHandlerInterface as CalgamoExceptionHandler;
+use knotlib\kernel\ExceptionHandler\ExceptionHandlerInterface;
+use knotlib\exceptionhandler\ExceptionHandlerInterface as CalgamoExceptionHandler;
 
 class KnotExceptionHandlerAdapter implements ExceptionHandlerInterface
 {

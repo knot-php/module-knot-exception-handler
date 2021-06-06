@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace KnotPhp\Module\KnotExceptionHandler\Test;
+namespace knotphp\module\knotexceptionhandler\test;
 
-use KnotLib\Kernel\Kernel\ApplicationType;
-use KnotLib\Module\Application\SimpleApplication;
+use knotlib\kernel\kernel\ApplicationType;
+use knotlib\module\application\SimpleApplication;
 
 final class TestSimpleApplication extends SimpleApplication
 {
